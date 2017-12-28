@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#16A78A</color>
+    <color name="colorPrimaryDark">#16A78A</color>
+    <color name="colorAccent">#16A78A</color>
+    <color name="silver">#D8DCDE</color>
+    <color name="pale_grey">#EDF3F8</color>
+    <color name="cool_grey">#879395</color>
+    <color name="steel_grey">#7B888A</color>
+</resources>

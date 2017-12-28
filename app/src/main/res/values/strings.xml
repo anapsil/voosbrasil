@@ -1,0 +1,37 @@
+<resources>
+    <string name="app_name">Vôos Brasil</string>
+
+    <!--Home-->
+    <string name="source">IATA Origem</string>
+    <string name="destination">IATA Destino</string>
+    <string name="departure_date">Data da ida</string>
+    <string name="arrival_date">Data da volta</string>
+    <string name="adults">Quantidade de passageiros</string>
+    <string name="search_flights">Pesquisar passagem</string>
+
+    <string-array name="adults_entries">
+        <item>@string/adults</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+    </string-array>
+
+    <!-- Search-->
+    <string name="title_search_activity">PESQUISAR PASSAGEM</string>
+    <string name="airline">Cia Aérea</string>
+    <string name="departure">Partida</string>
+    <string name="duration">Duração</string>
+    <string name="arrival">Chegada</string>
+    <string name="outward_trip">Ida</string>
+    <string name="return_trip">Volta</string>
+    <string name="buy">Comprar R$ %d</string>
+    <string name="filter">Filtrar</string>
+    <string name="sort">Ordenar</string>
+</resources>
