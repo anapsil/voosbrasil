@@ -3,8 +3,6 @@ package net.anapsil.voosbrasil.di.modules;
 import net.anapsil.voosbrasil.BuildConfig;
 import net.anapsil.voosbrasil.remote.FlightService;
 
-import javax.inject.Singleton;
-
 import dagger.Module;
 import dagger.Provides;
 import okhttp3.OkHttpClient;
@@ -46,7 +44,6 @@ public class DataserviceModule {
     }
 
     @Provides
-    @Singleton
     FlightService provideService(Retrofit retrofit) {
         return retrofit.create(FlightService.class);
     }

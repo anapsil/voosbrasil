@@ -1,5 +1,6 @@
 package net.anapsil.voosbrasil.helpers;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -8,11 +9,11 @@ import java.util.Locale;
 import static java.util.Calendar.DAY_OF_MONTH;
 import static java.util.Calendar.DAY_OF_WEEK;
 import static java.util.Calendar.MONTH;
-import static java.util.Calendar.SHORT;
-import static java.util.Calendar.YEAR;
 
 public class CalendarHelper {
-    public static final String PATTERN_DATE = "dd/MM/yyyy";
+    public static final String DEFAULT_PATTERN_DATE = "dd/MM/yyyy";
+    public static final String PATTERN_YYYYMMDD = "yyyyMMdd";
+    public static final String PATTERN_YYYY_MM_DD_t_HH_MM = "yyyy-MM-dd't'HHmm";
 
     private Locale defaultLocale;
 
@@ -29,27 +30,19 @@ public class CalendarHelper {
     }
 
     public String formatDate(Calendar calendar) {
-        SimpleDateFormat sdf = new SimpleDateFormat(PATTERN_DATE, defaultLocale);
+        return formatDate(calendar, DEFAULT_PATTERN_DATE);
+    }
+
+    public String formatDate(Calendar calendar, String pattern) {
+        SimpleDateFormat sdf = new SimpleDateFormat(pattern, defaultLocale);
 
         return sdf.format(calendar.getTime());
     }
 
-    public String formatFulldate(Calendar calendar) {
-        StringBuilder sb = new StringBuilder();
-        sb.append(calendar.getDisplayName(DAY_OF_WEEK, SHORT, defaultLocale))
-                .append(", ");
-        if (calendar.get(DAY_OF_MONTH) < 10) {
-            sb.append("0")
-                    .append(calendar.get(DAY_OF_MONTH));
-        } else {
-            sb.append(calendar.get(DAY_OF_MONTH));
-        }
-        sb.append(" de ")
-                .append(calendar.getDisplayName(MONTH, SHORT, defaultLocale))
-                .append(" de ")
-                .append(calendar.get(YEAR));
+    public String formatDate(String date, String patternSource, String patternTarget) {
+        Calendar calendar = parseDate(date, patternSource);
 
-        return sb.toString();
+        return formatDate(calendar, patternTarget);
     }
 
     public String formatTime(Calendar calendar) {
@@ -71,5 +64,41 @@ public class CalendarHelper {
         }
 
         return sb.toString();
+    }
+
+    public Calendar parseDate(String date, String pattern) {
+        SimpleDateFormat sdf = new SimpleDateFormat(pattern, defaultLocale);
+
+        try {
+            Date parsedDate = sdf.parse(date);
+            Calendar calendar = Calendar.getInstance();
+            calendar.setTime(parsedDate);
+
+            return calendar;
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+        return null;
+    }
+
+    public String formatFullDate(Calendar calendar) {
+        StringBuilder sb = new StringBuilder();
+        sb.append(calendar.getDisplayName(DAY_OF_WEEK, Calendar.LONG, defaultLocale))
+                .append(", ");
+        if (calendar.get(DAY_OF_MONTH) < 10) {
+            sb.append("0")
+                    .append(calendar.get(DAY_OF_MONTH));
+        } else {
+            sb.append(calendar.get(DAY_OF_MONTH));
+        }
+        sb.append(" de ")
+                .append(calendar.getDisplayName(MONTH, Calendar.LONG, defaultLocale));
+
+        return sb.toString();
+    }
+
+    public String formatFullDate(String date, String pattern) {
+        return formatFullDate(parseDate(date, pattern));
     }
 }
