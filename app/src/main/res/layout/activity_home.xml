@@ -44,13 +44,18 @@
                 android:focusableInTouchMode="true"
                 app:cardUseCompatPadding="true">
 
-                <Spinner
+                <android.support.v7.widget.AppCompatAutoCompleteTextView
                     android:id="@+id/source"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/home_form_view_height"
                     android:background="@drawable/bg_spinner_pin"
+                    android:dropDownAnchor="@id/source"
+                    android:hint="@string/source"
+                    android:imeOptions="actionNext"
+                    android:paddingEnd="16dp"
                     android:paddingStart="16dp"
-                    android:spinnerMode="dropdown"/>
+                    android:textSize="14sp"
+                    app:binding="@{vm.source}"/>
             </android.support.v7.widget.CardView>
 
             <android.support.v7.widget.CardView
@@ -59,14 +64,18 @@
                 android:layout_marginTop="@dimen/home_margin_vertical"
                 app:cardUseCompatPadding="true">
 
-                <Spinner
+                <android.support.v7.widget.AppCompatAutoCompleteTextView
                     android:id="@+id/destination"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/home_form_view_height"
                     android:background="@drawable/bg_spinner_pin"
+                    android:dropDownAnchor="@id/destination"
+                    android:hint="@string/destination"
+                    android:imeOptions="actionNext"
+                    android:paddingEnd="16dp"
                     android:paddingStart="16dp"
-                    android:spinnerMode="dropdown"
-                    android:textSize="14sp"/>
+                    android:textSize="14sp"
+                    app:binding="@{vm.destination}"/>
             </android.support.v7.widget.CardView>
 
             <LinearLayout
@@ -88,9 +97,11 @@
                         android:layout_height="match_parent"
                         android:layout_gravity="center_vertical"
                         android:background="@drawable/bg_spinner_calendar"
+                        android:focusable="true"
+                        android:focusableInTouchMode="true"
+                        android:gravity="center_vertical"
                         android:onClick="@{vm::onDepartureClick}"
                         android:paddingEnd="15dp"
-                        android:gravity="center_vertical"
                         android:paddingStart="15dp"
                         android:textSize="14sp"
                         app:binding="@{vm.departure}"
@@ -110,6 +121,8 @@
                         android:layout_height="match_parent"
                         android:layout_gravity="center_vertical"
                         android:background="@drawable/bg_spinner_calendar"
+                        android:focusable="true"
+                        android:focusableInTouchMode="true"
                         android:gravity="center_vertical"
                         android:onClick="@{vm::onArrivalClick}"
                         android:paddingEnd="15dp"
@@ -126,16 +139,17 @@
                 android:layout_marginTop="@dimen/home_margin_vertical"
                 app:cardUseCompatPadding="true">
 
-                <Spinner
+                <EditText
                     android:id="@+id/adults"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@drawable/bg_spinner_people"
-                    android:entries="@array/adults_entries"
+                    android:hint="@string/adults"
+                    android:inputType="number"
                     android:paddingEnd="16dp"
                     android:paddingStart="16dp"
-                    android:spinnerMode="dropdown"
-                    android:textSize="14sp"/>
+                    android:textSize="14sp"
+                    app:binding="@{vm.adults}"/>
             </android.support.v7.widget.CardView>
 
             <Button
@@ -145,11 +159,11 @@
                 android:layout_marginTop="@dimen/home_margin_vertical"
                 android:background="@drawable/green_button_background"
                 android:fontFamily="@font/ff_montserrat_bold"
+                android:onClick="@{vm::onSearchClick}"
                 android:text="@string/search_flights"
                 android:textAllCaps="false"
                 android:textColor="@android:color/white"
-                android:textSize="14sp"
-                android:onClick="@{vm::onSearchClick}"/>
+                android:textSize="14sp"/>
         </LinearLayout>
     </android.support.design.widget.CoordinatorLayout>
 </layout>

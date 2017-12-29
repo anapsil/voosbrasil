@@ -3,6 +3,8 @@ package net.anapsil.voosbrasil.di.modules;
 import android.app.Application;
 import android.content.res.Resources;
 
+import com.google.gson.Gson;
+
 import net.anapsil.voosbrasil.helpers.CalendarHelper;
 
 import java.util.Locale;
@@ -27,4 +29,10 @@ public abstract class AppModule {
     static CalendarHelper provideCalendarHelper(Locale locale) {
         return new CalendarHelper(locale);
     }
+
+    @Provides
+    static Gson provideGson() {
+        return new Gson();
+    }
+
 }
