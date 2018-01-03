@@ -26,4 +26,11 @@
         <item quantity="one">1 parada</item>
         <item quantity="other">%d paradas</item>
     </plurals>
+
+    <string name="title_filter_dialog">Selecione a companhia aérea</string>
+    <string name="all">Todas</string>
+    <string name="gol">Gol</string>
+    <string name="azul">Azul</string>
+    <string name="latam">Latam</string>
+    <string name="cancel">Cancelar</string>
 </resources>

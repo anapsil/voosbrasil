@@ -25,7 +25,7 @@ public class SearchFlightsBusiness {
     }
 
     public Single<List<FlightModel>> searchFlights(String source, String destination, String dateOfDeparture, String dateOfArrival, int adults) {
-        return repository.searchFlights(source, destination, dateOfDeparture, dateOfArrival, adults)
+        return repository.searchFlights(source.toUpperCase(), destination.toUpperCase(), dateOfDeparture, dateOfArrival, adults)
                 .flatMap(this::parseFlight)
                 .toList();
     }

@@ -13,28 +13,33 @@
     <android.support.v7.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="4dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
         app:cardUseCompatPadding="true">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="12dp"
+            android:layout_marginBottom="16dp"
+            android:layout_marginEnd="12dp"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="16dp"
             android:orientation="vertical">
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="56dp"
+                android:layout_height="20dp"
+                android:layout_marginBottom="18dp"
                 android:gravity="center_vertical"
                 android:orientation="horizontal"
                 android:weightSum="4">
 
                 <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    style="@style/Widget_TextViewCard.Bold"
                     android:layout_weight="1"
-                    android:gravity="center"
-                    android:text="@string/outward_trip"
-                    android:textAllCaps="true"/>
+                    android:text="@string/outward_trip"/>
 
                 <ImageView
                     android:layout_width="0dp"
@@ -48,10 +53,8 @@
 
                 <TextView
                     android:id="@+id/onward_fulldate"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    style="@style/Widget_TextViewCard.Medium"
                     android:layout_weight="2.2"
-                    android:gravity="center"
                     app:binding="@{vm.onwardDate}"
                     tools:text="Quarta, 08 de dezembro"/>
             </LinearLayout>
@@ -65,40 +68,33 @@
 
                 <TextView
                     android:id="@+id/onward_airline"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    style="@style/Widget_TextViewCard.Bold"
                     android:layout_weight="1"
-                    android:gravity="center"
-                    android:textAllCaps="true"
+                    android:textSize="14sp"
                     app:binding="@{vm.onwardAirline}"
                     tools:text="Gol"/>
 
                 <TextView
                     android:id="@+id/onward_departure"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    style="@style/Widget_TextViewCard.Bold"
                     android:layout_weight="1"
-                    android:gravity="center"
+                    android:textSize="14sp"
                     app:binding="@{vm.onwardDepartureTime}"
                     tools:text="06:55"/>
 
                 <TextView
                     android:id="@+id/onward_duration"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    style="@style/Widget_TextViewCard.Medium"
                     android:layout_weight="1.1"
-                    android:gravity="center"
                     android:textAllCaps="true"
                     app:binding="@{vm.onwardDuration}"
                     tools:text="1h55"/>
 
                 <TextView
                     android:id="@+id/onward_arrival"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    style="@style/Widget_TextViewCard.Bold"
                     android:layout_weight="1.1"
-                    android:gravity="center"
-                    android:textAllCaps="true"
+                    android:textSize="12sp"
                     app:binding="@{vm.onwardArrival}"
                     tools:text="07:51"/>
 
@@ -107,46 +103,36 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="6dp"
                 android:gravity="center_vertical"
                 android:orientation="horizontal"
                 android:weightSum="4">
 
                 <TextView
                     android:id="@+id/onward_flight_number"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    style="@style/Widget_TextViewCard"
                     android:layout_weight="1"
-                    android:gravity="center"
-                    android:textAllCaps="true"
                     app:binding="@{vm.onwardFlightNumber}"
                     tools:text="G33450"/>
 
                 <TextView
                     android:id="@+id/onward_departure_airport"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    style="@style/Widget_TextViewCard"
                     android:layout_weight="1"
-                    android:gravity="center"
                     app:binding="@{vm.onwardOrigin}"
                     tools:text="CNF"/>
 
                 <TextView
                     android:id="@+id/onward_stops"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    style="@style/Widget_TextViewCard"
                     android:layout_weight="1.1"
-                    android:gravity="center"
-                    android:textAllCaps="true"
                     app:binding="@{vm.onwardStops}"
                     tools:text="Voo direto"/>
 
                 <TextView
                     android:id="@+id/onward_arrival_airport"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    style="@style/Widget_TextViewCard"
                     android:layout_weight="1.1"
-                    android:gravity="center"
-                    android:textAllCaps="true"
                     app:binding="@{vm.onwardDestination}"
                     tools:text="GIG"/>
             </LinearLayout>
@@ -161,18 +147,17 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="56dp"
+                android:layout_height="20dp"
+                android:layout_marginBottom="18dp"
+                android:layout_marginTop="10dp"
                 android:gravity="center_vertical"
                 android:orientation="horizontal"
                 android:weightSum="4">
 
                 <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    style="@style/Widget_TextViewCard.Bold"
                     android:layout_weight="1"
-                    android:gravity="center"
-                    android:text="@string/return_trip"
-                    android:textAllCaps="true"/>
+                    android:text="@string/return_trip"/>
 
                 <ImageView
                     android:layout_width="0dp"
@@ -185,10 +170,8 @@
 
                 <TextView
                     android:id="@+id/return_date"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    style="@style/Widget_TextViewCard.Medium"
                     android:layout_weight="2.2"
-                    android:gravity="center"
                     app:binding="@{vm.returnDate}"
                     tools:text="Quarta, 08 de dezembro"/>
             </LinearLayout>
@@ -202,27 +185,23 @@
 
                 <TextView
                     android:id="@+id/return_airline"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    style="@style/Widget_TextViewCard.Bold"
                     android:layout_weight="1"
-                    android:gravity="center"
-                    android:textAllCaps="true"
+                    android:textSize="14sp"
                     app:binding="@{vm.returnAirline}"
                     tools:text="Gol"/>
 
                 <TextView
                     android:id="@+id/return_departure"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    style="@style/Widget_TextViewCard.Bold"
                     android:layout_weight="1"
-                    android:gravity="center"
+                    android:textSize="14sp"
                     app:binding="@{vm.returnDepartureTime}"
                     tools:text="06:55"/>
 
                 <TextView
                     android:id="@+id/return_duration"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    style="@style/Widget_TextViewCard.Medium"
                     android:layout_weight="1.1"
                     android:gravity="center"
                     android:textAllCaps="true"
@@ -231,11 +210,9 @@
 
                 <TextView
                     android:id="@+id/return_arrival"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    style="@style/Widget_TextViewCard.Bold"
                     android:layout_weight="1.1"
-                    android:gravity="center"
-                    android:textAllCaps="true"
+                    android:textSize="12sp"
                     app:binding="@{vm.returnArrival}"
                     tools:text="07:51"/>
 
@@ -244,46 +221,36 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="6dp"
                 android:gravity="center_vertical"
                 android:orientation="horizontal"
                 android:weightSum="4">
 
                 <TextView
                     android:id="@+id/return_flight_number"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    style="@style/Widget_TextViewCard"
                     android:layout_weight="1"
-                    android:gravity="center"
-                    android:textAllCaps="true"
                     app:binding="@{vm.returnFlightNumber}"
                     tools:text="G33450"/>
 
                 <TextView
                     android:id="@+id/return_departure_airport"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    style="@style/Widget_TextViewCard"
                     android:layout_weight="1"
-                    android:gravity="center"
                     app:binding="@{vm.returnOrigin}"
                     tools:text="CNF"/>
 
                 <TextView
                     android:id="@+id/return_stops"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    style="@style/Widget_TextViewCard"
                     android:layout_weight="1.1"
-                    android:gravity="center"
-                    android:textAllCaps="true"
                     app:binding="@{vm.returnStops}"
                     tools:text="Voo direto"/>
 
                 <TextView
                     android:id="@+id/return_arrival_airport"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    style="@style/Widget_TextViewCard"
                     android:layout_weight="1.1"
-                    android:gravity="center"
-                    android:textAllCaps="true"
                     app:binding="@{vm.returnDestination}"
                     tools:text="GIG"/>
             </LinearLayout>

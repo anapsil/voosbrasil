@@ -5,6 +5,8 @@ import android.app.Application;
 import net.anapsil.voosbrasil.VoosBrasilApplication;
 import net.anapsil.voosbrasil.di.modules.ActivityBindingModule;
 import net.anapsil.voosbrasil.di.modules.AppModule;
+import net.anapsil.voosbrasil.di.modules.FilterDialogFragmentModule;
+import net.anapsil.voosbrasil.di.modules.FragmentBindingModule;
 import net.anapsil.voosbrasil.di.modules.HomeActivityModule;
 import net.anapsil.voosbrasil.di.modules.SearchActivityModule;
 
@@ -13,8 +15,8 @@ import dagger.Component;
 import dagger.android.AndroidInjector;
 import dagger.android.support.AndroidSupportInjectionModule;
 
-@Component(modules = {AndroidSupportInjectionModule.class, ActivityBindingModule.class, AppModule.class,
-        HomeActivityModule.class, SearchActivityModule.class})
+@Component(modules = {AndroidSupportInjectionModule.class, ActivityBindingModule.class, FragmentBindingModule.class, AppModule.class,
+        HomeActivityModule.class, SearchActivityModule.class, FilterDialogFragmentModule.class})
 public interface AppComponent extends AndroidInjector<VoosBrasilApplication> {
 
     @Override

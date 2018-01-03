@@ -5,20 +5,22 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Filter;
+import android.widget.Filterable;
 
 import net.anapsil.voosbrasil.R;
 import net.anapsil.voosbrasil.ui.model.FlightModel;
 import net.anapsil.voosbrasil.ui.viewmodels.FlightItemViewModel;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
 import javax.inject.Inject;
 
-public class FlightsAdapter extends RecyclerView.Adapter<FlightViewHolder> {
+public class FlightsAdapter extends RecyclerView.Adapter<FlightViewHolder> implements Filterable {
     private List<FlightModel> flights = Collections.emptyList();
     private List<FlightModel> filteredFlights = Collections.emptyList();
-    private boolean isFiltering;
     private Resources resources;
 
     @Inject
@@ -28,6 +30,7 @@ public class FlightsAdapter extends RecyclerView.Adapter<FlightViewHolder> {
 
     public void setFlights(List<FlightModel> flights) {
         this.flights = flights;
+        this.filteredFlights = flights;
         notifyDataSetChanged();
     }
 
@@ -39,21 +42,51 @@ public class FlightsAdapter extends RecyclerView.Adapter<FlightViewHolder> {
 
     @Override
     public void onBindViewHolder(FlightViewHolder holder, int position) {
-        holder.getViewModel().update(flights.get(position));
+        holder.getViewModel().update(filteredFlights.get(position));
         holder.executePendingBindings();
     }
 
-    public void filter() {
-        notifyDataSetChanged();
-    }
-
     public void sort() {
-        Collections.sort(flights);
+        Collections.sort(filteredFlights);
         notifyDataSetChanged();
     }
 
     @Override
     public int getItemCount() {
-        return isFiltering ? filteredFlights.size() : flights.size();
+        return filteredFlights.size();
+    }
+
+    @Override
+    public Filter getFilter() {
+        return new Filter() {
+            @Override
+            protected FilterResults performFiltering(CharSequence charSequence) {
+                String query = charSequence.toString();
+
+                if (query.isEmpty()) {
+                    filteredFlights = flights;
+                } else {
+                    List<FlightModel> filteredList = new ArrayList<>();
+                    for (FlightModel f : flights) {
+                        if (f.getOnwardAirline().equals(query)) {
+                            filteredList.add(f);
+                        }
+                    }
+
+                    filteredFlights = filteredList;
+                }
+
+                FilterResults filterResults = new FilterResults();
+
+                filterResults.values = filteredFlights;
+                return filterResults;
+            }
+
+            @Override
+            protected void publishResults(CharSequence charSequence, FilterResults filterResults) {
+                filteredFlights = (ArrayList<FlightModel>) filterResults.values;
+                notifyDataSetChanged();
+            }
+        };
     }
 }

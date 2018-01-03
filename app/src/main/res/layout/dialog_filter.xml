@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="net.anapsil.voosbrasil.ui.viewmodels.FilterDialogViewModel"/>
+    </data>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:gravity="center"
+            android:paddingEnd="16dp"
+            android:paddingStart="16dp"
+            android:text="@string/title_filter_dialog"
+            android:textAppearance="@style/VoosBrasilTheme.TextAppearance.Bold"
+            android:textSize="16sp"/>
+
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onCheckedChanged="@{vm::onCheckedChanged}"
+            android:padding="16dp">
+
+            <RadioButton
+                android:id="@+id/option_all"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:checked="true"
+                android:text="@string/all"
+                android:textAllCaps="true"
+                android:textAppearance="@style/VoosBrasilTheme.TextAppearance.Medium"/>
+
+            <RadioButton
+                android:id="@+id/option_azul"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:text="@string/azul"
+                android:textAllCaps="true"
+                android:textAppearance="@style/VoosBrasilTheme.TextAppearance.Medium"/>
+
+            <RadioButton
+                android:id="@+id/option_gol"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:text="@string/gol"
+                android:textAllCaps="true"
+                android:textAppearance="@style/VoosBrasilTheme.TextAppearance.Medium"/>
+
+            <RadioButton
+                android:id="@+id/option_latam"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:text="@string/latam"
+                android:textAllCaps="true"
+                android:textAppearance="@style/VoosBrasilTheme.TextAppearance.Medium"/>
+        </RadioGroup>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:orientation="horizontal">
+
+            <Button
+                style="@style/Widget_ButtonWhite"
+                android:onClick="@{vm.onCancelClick}"
+                android:paddingEnd="0dp"
+                android:paddingStart="0dp"
+                android:text="@string/cancel"
+                android:textAllCaps="true"/>
+
+            <Button
+                style="@style/Widget_ButtonWhite"
+                android:onClick="@{vm.onOkClick}"
+                android:paddingEnd="0dp"
+                android:paddingStart="0dp"
+                android:text="@android:string/ok"
+                android:textAllCaps="true"/>
+        </LinearLayout>
+    </LinearLayout>
+</layout>

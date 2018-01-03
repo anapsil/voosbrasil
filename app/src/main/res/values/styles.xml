@@ -41,6 +41,25 @@
         <item name="android:textAppearance">@style/VoosBrasilTheme.TextAppearance</item>
     </style>
 
+    <style name="Widget_TextViewCard">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textAppearance">@style/VoosBrasilTheme.TextAppearance</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="Widget_TextViewCard.Bold">
+        <item name="android:textAppearance">@style/VoosBrasilTheme.TextAppearance.Bold</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="Widget_TextViewCard.Medium">
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textAppearance">@style/VoosBrasilTheme.TextAppearance.Medium</item>
+    </style>
+
     <style name="Widget_EditText" parent="Widget_TextViewForm">
         <item name="android:textColorHint">@color/cool_grey</item>
     </style>

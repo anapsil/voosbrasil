@@ -1,7 +1,6 @@
 package net.anapsil.voosbrasil.ui.viewmodels;
 
 import android.app.Activity;
-import android.app.FragmentManager;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.view.View;
@@ -44,15 +43,13 @@ public class HomeViewModel extends RxBaseViewModel implements DatePickerDialog.O
 
     private DatePickerDialog datePickerDialog;
     private Activity activity;
-    private FragmentManager fragmentManager;
     private CalendarHelper calendarHelper;
     private SearchFlightsBusiness business;
     private ArrayAdapter<String> adapter;
 
     @Inject
-    public HomeViewModel(@Named("home") Activity activity, FragmentManager fragmentManager, CalendarHelper calendarHelper, SearchFlightsBusiness business, Resources resources) {
+    public HomeViewModel(@Named("home") Activity activity, CalendarHelper calendarHelper, SearchFlightsBusiness business, Resources resources) {
         this.activity = activity;
-        this.fragmentManager = fragmentManager;
         this.calendarHelper = calendarHelper;
         this.business = business;
 
@@ -86,11 +83,11 @@ public class HomeViewModel extends RxBaseViewModel implements DatePickerDialog.O
     }
 
     public void onDepartureClick(View v) {
-        datePickerDialog.show(fragmentManager, TAG_DEPARTURE);
+        datePickerDialog.show(activity.getFragmentManager(), TAG_DEPARTURE);
     }
 
     public void onArrivalClick(View v) {
-        datePickerDialog.show(fragmentManager, TAG_ARRIVAL);
+        datePickerDialog.show(activity.getFragmentManager(), TAG_ARRIVAL);
     }
 
     public void onSearchClick(View v) {
