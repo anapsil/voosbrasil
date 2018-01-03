@@ -15,12 +15,6 @@ import dagger.Provides;
 @Module
 public abstract class HomeActivityModule {
 
-//    @Provides
-//    @PerActivity
-//    static HomeViewModel providesHomeViewModel(@Named("home") Activity activity, FragmentManager fragmentManager, Resources resources, CalendarHelper calendarHelper) {
-//        return new HomeViewModel(activity, fragmentManager, resources, calendarHelper);
-//    }
-
     @Provides
     @PerActivity
     static FragmentManager providesFragmentManager(HomeActivity activity) {

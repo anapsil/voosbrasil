@@ -1,14 +1,4 @@
 <resources>
-
-    <style name="VoosBrasilTheme" parent="Theme.AppCompat.Light.NoActionBar">
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
-        <item name="android:windowBackground">@color/pale_grey</item>
-        <item name="android:textAppearance">@style/VoosBrasilTheme.TextAppearance.Bold</item>
-        <item name="homeAsUpIndicator">@drawable/ic_arrow_back</item>
-    </style>
-
     <style name="VoosBrasilTheme.TextAppearance" parent="TextAppearance.AppCompat">
         <item name="android:fontFamily">@font/ff_montserrat</item>
         <item name="android:textColor">@color/cool_grey</item>

@@ -7,4 +7,5 @@
     <color name="pale_grey">#EDF3F8</color>
     <color name="cool_grey">#879395</color>
     <color name="steel_grey">#7B888A</color>
+    <color name="overlay">#89000000</color>
 </resources>

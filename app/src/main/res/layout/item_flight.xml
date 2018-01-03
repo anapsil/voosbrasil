@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
-        xmlns:app="http://schemas.android.com/apk/res-auto">
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="net.anapsil.voosbrasil.ui.viewmodels.FlightItemViewModel"/>
+    </data>
 
     <android.support.v7.widget.CardView
         android:layout_width="match_parent"
@@ -11,6 +18,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="12dp"
             android:orientation="vertical">
 
             <LinearLayout
@@ -34,15 +42,17 @@
                     android:layout_weight="0.8"
                     android:gravity="center"
                     android:importantForAccessibility="no"
+                    android:rotation="180"
                     android:scaleType="centerInside"
                     android:src="@drawable/ic_green_arrow_left"/>
 
                 <TextView
-                    android:id="@+id/outward_trip_fulldate"
+                    android:id="@+id/onward_trip_fulldate"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="2.2"
                     android:gravity="center"
+                    app:binding="@{vm.onwardTripDate}"
                     tools:text="Quarta, 08 de dezembro"/>
             </LinearLayout>
 
@@ -54,24 +64,26 @@
                 android:weightSum="4">
 
                 <TextView
-                    android:id="@+id/outward_trip_airline"
+                    android:id="@+id/onward_trip_airline"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:gravity="center"
                     android:textAllCaps="true"
+                    app:binding="@{vm.onwardAirline}"
                     tools:text="Gol"/>
 
                 <TextView
-                    android:id="@+id/outward_trip_departure"
+                    android:id="@+id/onward_trip_departure"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:gravity="center"
+                    app:binding="@{vm.onwardDepartureTime}"
                     tools:text="06:55"/>
 
                 <TextView
-                    android:id="@+id/outward_trip_duration"
+                    android:id="@+id/onward_trip_duration"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1.1"
@@ -80,7 +92,7 @@
                     tools:text="1h55"/>
 
                 <TextView
-                    android:id="@+id/outward_trip_arrival"
+                    android:id="@+id/onward_trip_arrival"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1.1"
@@ -98,7 +110,7 @@
                 android:weightSum="4">
 
                 <TextView
-                    android:id="@+id/outward_trip_flight_number"
+                    android:id="@+id/onward_trip_flight_number"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -107,7 +119,7 @@
                     tools:text="G33450"/>
 
                 <TextView
-                    android:id="@+id/outward_trip_departure_airport"
+                    android:id="@+id/onward_trip_departure_airport"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -115,16 +127,17 @@
                     tools:text="CNF"/>
 
                 <TextView
-                    android:id="@+id/outward_trip_stops"
+                    android:id="@+id/onward_trip_stops"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1.1"
                     android:gravity="center"
                     android:textAllCaps="true"
+                    app:binding="@{vm.onwardStops}"
                     tools:text="Voo direto"/>
 
                 <TextView
-                    android:id="@+id/outward_trip_arrival_airport"
+                    android:id="@+id/onward_trip_arrival_airport"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1.1"
@@ -133,12 +146,152 @@
                     tools:text="GIG"/>
             </LinearLayout>
 
-            <ImageView
+            <View
+                android:id="@+id/line1"
                 android:layout_width="match_parent"
-                android:layout_height="2dp"
-                android:background="@drawable/dashed_line"
-                android:layout_marginTop="8dp"
-                android:layout_marginBottom="8dp"/>
+                android:layout_height="6dp"
+                android:layout_marginBottom="2dp"
+                android:layout_marginTop="2dp"
+                android:background="@drawable/dashed_line"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:weightSum="4">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="@string/return_trip"
+                    android:textAllCaps="true"/>
+
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.8"
+                    android:gravity="center"
+                    android:importantForAccessibility="no"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/ic_green_arrow_left"/>
+
+                <TextView
+                    android:id="@+id/return_trip_fulldate"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2.2"
+                    android:gravity="center"
+                    tools:text="Quarta, 08 de dezembro"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:weightSum="4">
+
+                <TextView
+                    android:id="@+id/return_trip_airline"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:textAllCaps="true"
+                    tools:text="Gol"/>
+
+                <TextView
+                    android:id="@+id/return_trip_departure"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    tools:text="06:55"/>
+
+                <TextView
+                    android:id="@+id/return_trip_duration"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.1"
+                    android:gravity="center"
+                    android:textAllCaps="true"
+                    tools:text="1h55"/>
+
+                <TextView
+                    android:id="@+id/return_trip_arrival"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.1"
+                    android:gravity="center"
+                    android:textAllCaps="true"
+                    tools:text="07:51"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:weightSum="4">
+
+                <TextView
+                    android:id="@+id/return_trip_flight_number"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:textAllCaps="true"
+                    tools:text="G33450"/>
+
+                <TextView
+                    android:id="@+id/return_trip_departure_airport"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    tools:text="CNF"/>
+
+                <TextView
+                    android:id="@+id/return_trip_stops"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.1"
+                    android:gravity="center"
+                    android:textAllCaps="true"
+                    tools:text="Voo direto"/>
+
+                <TextView
+                    android:id="@+id/return_trip_arrival_airport"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.1"
+                    android:gravity="center"
+                    android:textAllCaps="true"
+                    tools:text="GIG"/>
+            </LinearLayout>
+
+            <View
+                android:id="@+id/line2"
+                android:layout_width="match_parent"
+                android:layout_height="6dp"
+                android:layout_marginBottom="2dp"
+                android:layout_marginTop="2dp"
+                android:background="@drawable/dashed_line"/>
+
+            <Button
+                android:id="@+id/buy"
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/green_button_background"
+                android:textAllCaps="false"
+                android:textColor="@android:color/white"
+                app:binding="@{vm.fare}"
+                tools:text="Comprar R$ 355,39"/>
         </LinearLayout>
     </android.support.v7.widget.CardView>
 </layout>

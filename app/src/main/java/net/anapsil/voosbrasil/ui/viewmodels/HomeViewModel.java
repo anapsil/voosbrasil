@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.res.Resources;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Toast;
 
 import com.wdullaer.materialdatetimepicker.date.DatePickerDialog;
 
@@ -28,6 +29,7 @@ import io.reactivex.schedulers.Schedulers;
 
 import static net.anapsil.voosbrasil.helpers.CalendarHelper.DEFAULT_PATTERN_DATE;
 import static net.anapsil.voosbrasil.helpers.CalendarHelper.PATTERN_YYYYMMDD;
+import static net.anapsil.voosbrasil.ui.activities.SearchActivity.EXTRA_FLIGHTS;
 
 public class HomeViewModel extends RxBaseViewModel implements DatePickerDialog.OnDateSetListener {
     private final String TAG_DEPARTURE = "departure";
@@ -43,16 +45,14 @@ public class HomeViewModel extends RxBaseViewModel implements DatePickerDialog.O
     private DatePickerDialog datePickerDialog;
     private Activity activity;
     private FragmentManager fragmentManager;
-    private Resources resources;
     private CalendarHelper calendarHelper;
     private SearchFlightsBusiness business;
     private ArrayAdapter<String> adapter;
 
     @Inject
-    public HomeViewModel(@Named("home") Activity activity, FragmentManager fragmentManager, Resources resources, CalendarHelper calendarHelper, SearchFlightsBusiness business) {
+    public HomeViewModel(@Named("home") Activity activity, FragmentManager fragmentManager, CalendarHelper calendarHelper, SearchFlightsBusiness business, Resources resources) {
         this.activity = activity;
         this.fragmentManager = fragmentManager;
-        this.resources = resources;
         this.calendarHelper = calendarHelper;
         this.business = business;
 
@@ -98,19 +98,26 @@ public class HomeViewModel extends RxBaseViewModel implements DatePickerDialog.O
     }
 
     private void search() {
+        isLoading.set(true);
         disposable.add(business.searchFlights(source.get(), destination.get(),
                 calendarHelper.formatDate(departure.get(), DEFAULT_PATTERN_DATE, PATTERN_YYYYMMDD),
                 calendarHelper.formatDate(arrival.get(), DEFAULT_PATTERN_DATE, PATTERN_YYYYMMDD),
                 Integer.parseInt(adults.get()))
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(this::openSearchActivity));
+                .subscribe(this::openSearchActivity, this::handleError));
     }
 
     private void openSearchActivity(List<FlightModel> flights) {
+        isLoading.set(false);
         Intent intent = new Intent(ACTION_FLIGHT_SEARCH);
-        intent.putExtra("EXTRA_FLIGHTS", new ArrayList<>(flights));
+        intent.putExtra(EXTRA_FLIGHTS, new ArrayList<>(flights));
         activity.startActivity(intent);
+    }
+
+    private void handleError(Throwable error) {
+        isLoading.set(false);
+        Toast.makeText(activity, error.getMessage(), Toast.LENGTH_LONG).show();
     }
 
     @Override

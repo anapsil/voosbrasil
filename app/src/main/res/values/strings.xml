@@ -17,7 +17,13 @@
     <string name="arrival">Chegada</string>
     <string name="outward_trip">Ida</string>
     <string name="return_trip">Volta</string>
-    <string name="buy">Comprar R$ %d</string>
+    <string name="no_stops">voo direto</string>
+    <string name="buy">Comprar R$ %.2f</string>
     <string name="filter">Filtrar</string>
     <string name="sort">Ordenar</string>
+
+    <plurals name="stops">
+        <item quantity="one">1 parada</item>
+        <item quantity="other">%d paradas</item>
+    </plurals>
 </resources>

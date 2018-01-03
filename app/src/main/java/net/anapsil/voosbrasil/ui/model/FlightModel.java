@@ -2,8 +2,9 @@ package net.anapsil.voosbrasil.ui.model;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+import android.support.annotation.NonNull;
 
-public class FlightModel implements Parcelable {
+public class FlightModel implements Parcelable, Comparable<FlightModel> {
 
     public static final Creator<FlightModel> CREATOR = new Creator<FlightModel>() {
         @Override
@@ -185,6 +186,19 @@ public class FlightModel implements Parcelable {
         dest.writeInt(this.returnStops);
         dest.writeString(this.returnDestination);
         dest.writeDouble(this.fare);
+    }
+
+    @Override
+    public int compareTo(@NonNull FlightModel flight) {
+        if (this.fare < flight.getFare()) {
+            return -1;
+        }
+
+        if (this.fare > flight.getFare()) {
+            return 1;
+        }
+
+        return 0;
     }
 
     public static final class Builder {

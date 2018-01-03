@@ -1,18 +1,35 @@
 package net.anapsil.voosbrasil.ui.viewmodels;
 
-import net.anapsil.voosbrasil.helpers.CalendarHelper;
-import net.anapsil.voosbrasil.remote.models.Flight;
+import android.view.View;
+
+import net.anapsil.voosbrasil.ui.adapters.FlightsAdapter;
+import net.anapsil.voosbrasil.ui.model.FlightModel;
 
 import java.util.List;
 
-public class SearchViewModel extends BaseViewModel {
-    private CalendarHelper calendarHelper;
+import javax.inject.Inject;
 
-    public SearchViewModel(CalendarHelper calendarHelper) {
-        this.calendarHelper = calendarHelper;
+public class SearchViewModel extends BaseViewModel {
+    private FlightsAdapter adapter;
+
+    @Inject
+    public SearchViewModel(FlightsAdapter adapter) {
+        this.adapter = adapter;
     }
 
-    public void updateList(List<Flight> flights) {
+    public FlightsAdapter getAdapter() {
+        return adapter;
+    }
+
+    public void updateList(List<FlightModel> flights) {
+        adapter.setFlights(flights);
+    }
+
+    public void onSortClick(View v) {
+
+    }
+
+    public void onFilterClick(View v) {
 
     }
 }

@@ -23,8 +23,9 @@
 
         <activity
             android:name=".ui.activities.SearchActivity"
-            android:screenOrientation="portrait"
-            android:parentActivityName=".ui.activities.HomeActivity">
+            android:label="@string/title_search_activity"
+            android:parentActivityName=".ui.activities.HomeActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="net.anapsil.voosbrasil.FLIGHT_SEARCH"/>
                 <category android:name="android.intent.category.DEFAULT"/>

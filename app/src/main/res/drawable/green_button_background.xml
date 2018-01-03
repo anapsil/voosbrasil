@@ -1,14 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
-    <item>
-        <shape android:shape="rectangle">
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+       android:shape="rectangle">
 
             <solid android:color="@color/colorPrimary"/>
             <corners android:radius="2dp"/>
-        </shape>
-    </item>
-    <item android:left="50dp" android:top="3dp">
-        <bitmap android:src="@drawable/ic_search"
-                android:gravity="center_vertical|start"/>
-    </item>
-</layer-list>
+
+</shape>

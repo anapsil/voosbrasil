@@ -8,6 +8,8 @@
         <variable
             name="vm"
             type="net.anapsil.voosbrasil.ui.viewmodels.HomeViewModel"/>
+
+        <import type="android.view.View"/>
     </data>
 
     <android.support.design.widget.CoordinatorLayout
@@ -17,6 +19,7 @@
         <android.support.design.widget.AppBarLayout
             android:layout_width="match_parent"
             android:layout_height="114dp"
+            android:background="@color/colorPrimary"
             android:gravity="center">
 
             <ImageView
@@ -157,7 +160,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/home_margin_vertical"
-                android:background="@drawable/green_button_background"
+                android:background="@drawable/search_green_button_background"
                 android:fontFamily="@font/ff_montserrat_bold"
                 android:onClick="@{vm::onSearchClick}"
                 android:text="@string/search_flights"
@@ -165,5 +168,20 @@
                 android:textColor="@android:color/white"
                 android:textSize="14sp"/>
         </LinearLayout>
+
+        <FrameLayout
+            android:id="@+id/progress"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/overlay"
+            android:clickable="true"
+            android:visibility="@{vm.isLoading ? View.VISIBLE : View.GONE}"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <ProgressBar
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"/>
+        </FrameLayout>
     </android.support.design.widget.CoordinatorLayout>
 </layout>

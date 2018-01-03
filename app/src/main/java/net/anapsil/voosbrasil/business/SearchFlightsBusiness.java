@@ -26,22 +26,28 @@ public class SearchFlightsBusiness {
 
     public Single<List<FlightModel>> searchFlights(String source, String destination, String dateOfDeparture, String dateOfArrival, int adults) {
         return repository.searchFlights(source, destination, dateOfDeparture, dateOfArrival, adults)
-                .flatMap(flight -> Observable.just(new FlightModel.Builder()
-                        .onwardDate(calendarHelper.formatFullDate(flight.getDepdate(), PATTERN_YYYY_MM_DD_t_HH_MM))
-                        .onwardAirline(flight.getAirline().split(" ")[0])
-                        .onwardDepartureTime(flight.getDeptime())
-                        .onwardDuration(flight.getDuration().replace(" ", "").replace("m", "").toUpperCase())
-                        .onwardArrivalTime(getArrivalTime(flight))
-                        .onwardFlightNumber(flight.getFlightcode().toUpperCase())
-                        .onwardSource(flight.getOrigin())
-                        .onwardStops(Integer.parseInt(flight.getStops()))
-                        .onwardDestination(getDestination(flight))
-                        .returnDate(calendarHelper.formatFullDate(flight.getReturnfl().get(0).getDepdate(), PATTERN_YYYY_MM_DD_t_HH_MM))
-                        .returnAirline(flight.getReturnfl().get(0).getAirline().split(" ")[0])
-                        .returnDepartureTime(flight.getReturnfl().get(0).getDeptime())
-                        .fare(flight.getFare().getTotalfare() / 100)
-                        .build()))
+                .flatMap(this::parseFlight)
                 .toList();
+    }
+
+    private Observable<FlightModel> parseFlight(Flight flight) {
+        FlightModel model = new FlightModel.Builder()
+                .onwardDate(calendarHelper.formatFullDate(flight.getDepdate(), PATTERN_YYYY_MM_DD_t_HH_MM))
+                .onwardAirline(flight.getAirline().split(" ")[0])
+                .onwardDepartureTime(flight.getDeptime())
+                .onwardDuration(flight.getDuration().replace(" ", "").replace("m", "").toUpperCase())
+                .onwardArrivalTime(getArrivalTime(flight))
+                .onwardFlightNumber(flight.getFlightcode().toUpperCase())
+                .onwardSource(flight.getOrigin())
+                .onwardStops(Integer.parseInt(flight.getStops()))
+                .onwardDestination(getDestination(flight))
+                .returnDate(calendarHelper.formatFullDate(flight.getReturnfl().get(0).getDepdate(), PATTERN_YYYY_MM_DD_t_HH_MM))
+                .returnAirline(flight.getReturnfl().get(0).getAirline().split(" ")[0])
+                .returnDepartureTime(flight.getReturnfl().get(0).getDeptime())
+                .fare(flight.getFare().getTotalfare() / 100)
+                .build();
+
+        return Observable.just(model);
     }
 
     private String getArrivalTime(Flight flight) {
