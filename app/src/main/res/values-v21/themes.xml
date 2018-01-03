@@ -5,7 +5,6 @@
         <item name="android:colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="android:colorAccent">@color/colorAccent</item>
         <item name="android:windowBackground">@color/pale_grey</item>
-        <item name="android:textAppearance">@style/VoosBrasilTheme.TextAppearance.Bold</item>
         <item name="android:homeAsUpIndicator">@drawable/ic_arrow_back</item>
     </style>
 

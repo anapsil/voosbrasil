@@ -1,4 +1,5 @@
 <resources>
+
     <style name="VoosBrasilTheme.TextAppearance" parent="TextAppearance.AppCompat">
         <item name="android:fontFamily">@font/ff_montserrat</item>
         <item name="android:textColor">@color/cool_grey</item>
@@ -9,7 +10,59 @@
         <item name="android:fontFamily">@font/ff_montserrat_bold</item>
     </style>
 
+    <style name="VoosBrasilTheme.TextAppearance.Bold.White">
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
     <style name="VoosBrasilTheme.TextAppearance.Medium">
         <item name="android:fontFamily">@font/ff_montserrat_medium</item>
+    </style>
+
+    <style name="VoosBrasilTheme.TextAppearance.Medium.White">
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+    <style name="Widget_CardTitle">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:textAppearance">@style/VoosBrasilTheme.TextAppearance.Medium.White</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="Widget_TextViewForm">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:paddingStart">16dp</item>
+        <item name="android:paddingEnd">16dp</item>
+        <item name="android:clickable">true</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:textAppearance">@style/VoosBrasilTheme.TextAppearance</item>
+    </style>
+
+    <style name="Widget_EditText" parent="Widget_TextViewForm">
+        <item name="android:textColorHint">@color/cool_grey</item>
+    </style>
+
+    <style name="Widget_ButtonGreen" parent="Widget.AppCompat.Button.Borderless">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:textAppearance">@style/VoosBrasilTheme.TextAppearance.Bold.White</item>
+        <item name="android:paddingStart">48dp</item>
+        <item name="android:paddingEnd">48dp</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:background">@drawable/green_button_background</item>
+    </style>
+
+    <style name="Widget_ButtonWhite" parent="Widget.AppCompat.Button.Borderless">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:textAppearance">@style/VoosBrasilTheme.TextAppearance.Bold</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:paddingStart">48dp</item>
+        <item name="android:paddingEnd">48dp</item>
+        <item name="android:textColor">@color/steel_grey</item>
+        <item name="android:background">@drawable/white_button_background</item>
     </style>
 </resources>

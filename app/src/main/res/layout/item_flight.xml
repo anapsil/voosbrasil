@@ -47,12 +47,12 @@
                     android:src="@drawable/ic_green_arrow_left"/>
 
                 <TextView
-                    android:id="@+id/onward_trip_fulldate"
+                    android:id="@+id/onward_fulldate"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="2.2"
                     android:gravity="center"
-                    app:binding="@{vm.onwardTripDate}"
+                    app:binding="@{vm.onwardDate}"
                     tools:text="Quarta, 08 de dezembro"/>
             </LinearLayout>
 
@@ -64,7 +64,7 @@
                 android:weightSum="4">
 
                 <TextView
-                    android:id="@+id/onward_trip_airline"
+                    android:id="@+id/onward_airline"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -74,7 +74,7 @@
                     tools:text="Gol"/>
 
                 <TextView
-                    android:id="@+id/onward_trip_departure"
+                    android:id="@+id/onward_departure"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -83,21 +83,23 @@
                     tools:text="06:55"/>
 
                 <TextView
-                    android:id="@+id/onward_trip_duration"
+                    android:id="@+id/onward_duration"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1.1"
                     android:gravity="center"
                     android:textAllCaps="true"
+                    app:binding="@{vm.onwardDuration}"
                     tools:text="1h55"/>
 
                 <TextView
-                    android:id="@+id/onward_trip_arrival"
+                    android:id="@+id/onward_arrival"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1.1"
                     android:gravity="center"
                     android:textAllCaps="true"
+                    app:binding="@{vm.onwardArrival}"
                     tools:text="07:51"/>
 
             </LinearLayout>
@@ -110,24 +112,26 @@
                 android:weightSum="4">
 
                 <TextView
-                    android:id="@+id/onward_trip_flight_number"
+                    android:id="@+id/onward_flight_number"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:gravity="center"
                     android:textAllCaps="true"
+                    app:binding="@{vm.onwardFlightNumber}"
                     tools:text="G33450"/>
 
                 <TextView
-                    android:id="@+id/onward_trip_departure_airport"
+                    android:id="@+id/onward_departure_airport"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:gravity="center"
+                    app:binding="@{vm.onwardOrigin}"
                     tools:text="CNF"/>
 
                 <TextView
-                    android:id="@+id/onward_trip_stops"
+                    android:id="@+id/onward_stops"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1.1"
@@ -137,12 +141,13 @@
                     tools:text="Voo direto"/>
 
                 <TextView
-                    android:id="@+id/onward_trip_arrival_airport"
+                    android:id="@+id/onward_arrival_airport"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1.1"
                     android:gravity="center"
                     android:textAllCaps="true"
+                    app:binding="@{vm.onwardDestination}"
                     tools:text="GIG"/>
             </LinearLayout>
 
@@ -179,11 +184,12 @@
                     android:src="@drawable/ic_green_arrow_left"/>
 
                 <TextView
-                    android:id="@+id/return_trip_fulldate"
+                    android:id="@+id/return_date"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="2.2"
                     android:gravity="center"
+                    app:binding="@{vm.returnDate}"
                     tools:text="Quarta, 08 de dezembro"/>
             </LinearLayout>
 
@@ -195,38 +201,42 @@
                 android:weightSum="4">
 
                 <TextView
-                    android:id="@+id/return_trip_airline"
+                    android:id="@+id/return_airline"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:gravity="center"
                     android:textAllCaps="true"
+                    app:binding="@{vm.returnAirline}"
                     tools:text="Gol"/>
 
                 <TextView
-                    android:id="@+id/return_trip_departure"
+                    android:id="@+id/return_departure"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:gravity="center"
+                    app:binding="@{vm.returnDepartureTime}"
                     tools:text="06:55"/>
 
                 <TextView
-                    android:id="@+id/return_trip_duration"
+                    android:id="@+id/return_duration"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1.1"
                     android:gravity="center"
                     android:textAllCaps="true"
+                    app:binding="@{vm.returnDuration}"
                     tools:text="1h55"/>
 
                 <TextView
-                    android:id="@+id/return_trip_arrival"
+                    android:id="@+id/return_arrival"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1.1"
                     android:gravity="center"
                     android:textAllCaps="true"
+                    app:binding="@{vm.returnArrival}"
                     tools:text="07:51"/>
 
             </LinearLayout>
@@ -239,38 +249,42 @@
                 android:weightSum="4">
 
                 <TextView
-                    android:id="@+id/return_trip_flight_number"
+                    android:id="@+id/return_flight_number"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:gravity="center"
                     android:textAllCaps="true"
+                    app:binding="@{vm.returnFlightNumber}"
                     tools:text="G33450"/>
 
                 <TextView
-                    android:id="@+id/return_trip_departure_airport"
+                    android:id="@+id/return_departure_airport"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:gravity="center"
+                    app:binding="@{vm.returnOrigin}"
                     tools:text="CNF"/>
 
                 <TextView
-                    android:id="@+id/return_trip_stops"
+                    android:id="@+id/return_stops"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1.1"
                     android:gravity="center"
                     android:textAllCaps="true"
+                    app:binding="@{vm.returnStops}"
                     tools:text="Voo direto"/>
 
                 <TextView
-                    android:id="@+id/return_trip_arrival_airport"
+                    android:id="@+id/return_arrival_airport"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1.1"
                     android:gravity="center"
                     android:textAllCaps="true"
+                    app:binding="@{vm.returnDestination}"
                     tools:text="GIG"/>
             </LinearLayout>
 

@@ -42,42 +42,35 @@
 
             <android.support.v7.widget.CardView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:focusable="true"
-                android:focusableInTouchMode="true"
+                android:layout_height="@dimen/home_form_view_height"
                 app:cardUseCompatPadding="true">
 
                 <android.support.v7.widget.AppCompatAutoCompleteTextView
                     android:id="@+id/source"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/home_form_view_height"
+                    style="@style/Widget_EditText"
                     android:background="@drawable/bg_spinner_pin"
                     android:dropDownAnchor="@id/source"
                     android:hint="@string/source"
                     android:imeOptions="actionNext"
-                    android:paddingEnd="16dp"
-                    android:paddingStart="16dp"
+                    android:maxLength="3"
+                    android:textAllCaps="true"
                     android:textSize="14sp"
                     app:binding="@{vm.source}"/>
             </android.support.v7.widget.CardView>
 
             <android.support.v7.widget.CardView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="@dimen/home_form_view_height"
                 android:layout_marginTop="@dimen/home_margin_vertical"
                 app:cardUseCompatPadding="true">
 
                 <android.support.v7.widget.AppCompatAutoCompleteTextView
                     android:id="@+id/destination"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/home_form_view_height"
+                    style="@style/Widget_EditText"
                     android:background="@drawable/bg_spinner_pin"
                     android:dropDownAnchor="@id/destination"
                     android:hint="@string/destination"
                     android:imeOptions="actionNext"
-                    android:paddingEnd="16dp"
-                    android:paddingStart="16dp"
-                    android:textSize="14sp"
                     app:binding="@{vm.destination}"/>
             </android.support.v7.widget.CardView>
 
@@ -96,17 +89,9 @@
 
                     <TextView
                         android:id="@+id/departure_date"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_gravity="center_vertical"
+                        style="@style/Widget_TextViewForm"
                         android:background="@drawable/bg_spinner_calendar"
-                        android:focusable="true"
-                        android:focusableInTouchMode="true"
-                        android:gravity="center_vertical"
                         android:onClick="@{vm::onDepartureClick}"
-                        android:paddingEnd="15dp"
-                        android:paddingStart="15dp"
-                        android:textSize="14sp"
                         app:binding="@{vm.departure}"
                         tools:text="@string/departure_date"/>
                 </android.support.v7.widget.CardView>
@@ -120,17 +105,9 @@
 
                     <TextView
                         android:id="@+id/arrival_date"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_gravity="center_vertical"
+                        style="@style/Widget_TextViewForm"
                         android:background="@drawable/bg_spinner_calendar"
-                        android:focusable="true"
-                        android:focusableInTouchMode="true"
-                        android:gravity="center_vertical"
                         android:onClick="@{vm::onArrivalClick}"
-                        android:paddingEnd="15dp"
-                        android:paddingStart="15dp"
-                        android:textSize="14sp"
                         app:binding="@{vm.arrival}"
                         tools:text="@string/arrival_date"/>
                 </android.support.v7.widget.CardView>
@@ -144,29 +121,22 @@
 
                 <EditText
                     android:id="@+id/adults"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    style="@style/Widget_EditText"
                     android:background="@drawable/bg_spinner_people"
                     android:hint="@string/adults"
                     android:inputType="number"
-                    android:paddingEnd="16dp"
-                    android:paddingStart="16dp"
-                    android:textSize="14sp"
+                    android:maxLength="1"
                     app:binding="@{vm.adults}"/>
             </android.support.v7.widget.CardView>
 
             <Button
                 android:id="@+id/search"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/Widget_ButtonGreen"
+                android:layout_height="54dp"
                 android:layout_marginTop="@dimen/home_margin_vertical"
-                android:background="@drawable/search_green_button_background"
-                android:fontFamily="@font/ff_montserrat_bold"
+                android:drawableStart="@drawable/ic_search"
                 android:onClick="@{vm::onSearchClick}"
-                android:text="@string/search_flights"
-                android:textAllCaps="false"
-                android:textColor="@android:color/white"
-                android:textSize="14sp"/>
+                android:text="@string/search_flights"/>
         </LinearLayout>
 
         <FrameLayout
@@ -175,6 +145,7 @@
             android:layout_height="match_parent"
             android:background="@color/overlay"
             android:clickable="true"
+            android:focusable="true"
             android:visibility="@{vm.isLoading ? View.VISIBLE : View.GONE}"
             app:layout_behavior="@string/appbar_scrolling_view_behavior">
 

@@ -25,6 +25,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+
+                <TextView
+                    style="@style/VoosBrasilTheme.TextAppearance.Bold.White"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/title_search_activity"/>
             </android.support.v7.widget.Toolbar>
         </android.support.design.widget.AppBarLayout>
 
@@ -42,31 +48,19 @@
                 android:weightSum="4">
 
                 <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="center"
+                    style="@style/Widget_CardTitle"
                     android:text="@string/airline"/>
 
                 <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="center"
+                    style="@style/Widget_CardTitle"
                     android:text="@string/departure"/>
 
                 <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="center"
+                    style="@style/Widget_CardTitle"
                     android:text="@string/duration"/>
 
                 <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="center"
+                    style="@style/Widget_CardTitle"
                     android:text="@string/arrival"/>
             </LinearLayout>
 
@@ -74,7 +68,7 @@
                 android:id="@+id/flights"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="56dp"
+                android:layout_marginBottom="40dp"
                 android:layout_marginEnd="16dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="56dp"
@@ -90,21 +84,16 @@
 
                 <Button
                     android:id="@+id/filter"
-                    style="@style/Widget.AppCompat.Button.Borderless"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:background="@drawable/white_button_background"
-                    android:text="@string/filter"/>
+                    style="@style/Widget_ButtonWhite"
+                    android:text="@string/filter"
+                    android:drawableStart="@drawable/ic_filter"/>
 
                 <Button
                     android:id="@+id/sort"
-                    style="@style/Widget.AppCompat.Button.Borderless"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:background="@drawable/white_button_background"
-                    android:text="@string/sort"/>
+                    style="@style/Widget_ButtonWhite"
+                    android:onClick="@{vm::onSortClick}"
+                    android:text="@string/sort"
+                    android:drawableStart="@drawable/ic_sort"/>
             </LinearLayout>
         </FrameLayout>
     </android.support.design.widget.CoordinatorLayout>
