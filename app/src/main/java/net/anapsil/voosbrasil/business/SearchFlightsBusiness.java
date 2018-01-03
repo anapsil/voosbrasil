@@ -37,13 +37,19 @@ public class SearchFlightsBusiness {
                 .onwardDepartureTime(flight.getDeptime())
                 .onwardDuration(flight.getDuration().replace(" ", "").replace("m", "").toUpperCase())
                 .onwardArrivalTime(getArrivalTime(flight))
-                .onwardFlightNumber(flight.getFlightcode().toUpperCase())
+                .onwardFlightNumber(flight.getFlightno().toUpperCase())
                 .onwardSource(flight.getOrigin())
                 .onwardStops(Integer.parseInt(flight.getStops()))
                 .onwardDestination(getDestination(flight))
                 .returnDate(calendarHelper.formatFullDate(flight.getReturnfl().get(0).getDepdate(), PATTERN_YYYY_MM_DD_t_HH_MM))
                 .returnAirline(flight.getReturnfl().get(0).getAirline().split(" ")[0])
                 .returnDepartureTime(flight.getReturnfl().get(0).getDeptime())
+                .returnDuration(flight.getReturnfl().get(0).getDuration().replace(" ", "").replace("m", "").toUpperCase())
+                .returnArrivalTime(getReturnArrivalTime(flight))
+                .returnFlightNumber(flight.getReturnfl().get(0).getFlightno())
+                .returnSource(flight.getReturnfl().get(0).getOrigin())
+                .returnStops(Integer.parseInt(flight.getReturnfl().get(0).getStops()))
+                .returnDestination(getReturnDestination(flight))
                 .fare(flight.getFare().getTotalfare() / 100)
                 .build();
 
@@ -56,9 +62,21 @@ public class SearchFlightsBusiness {
                 flight.getArrtime();
     }
 
+    private String getReturnArrivalTime(Flight flight) {
+        return Integer.parseInt(flight.getStops()) > 0 ?
+                flight.getReturnfl().get(flight.getReturnfl().size() - 1).getArrtime() :
+                flight.getArrtime();
+    }
+
     private String getDestination(Flight flight) {
         return Integer.parseInt(flight.getStops()) > 0 ?
                 flight.getOnwardflights().get(flight.getOnwardflights().size() - 1).getDestination() :
+                flight.getDestination();
+    }
+
+    private String getReturnDestination(Flight flight) {
+        return Integer.parseInt(flight.getStops()) > 0 ?
+                flight.getReturnfl().get(flight.getReturnfl().size() - 1).getDestination() :
                 flight.getDestination();
     }
 }

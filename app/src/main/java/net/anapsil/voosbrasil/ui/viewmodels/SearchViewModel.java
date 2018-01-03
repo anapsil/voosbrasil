@@ -26,7 +26,7 @@ public class SearchViewModel extends BaseViewModel {
     }
 
     public void onSortClick(View v) {
-
+        adapter.sort();
     }
 
     public void onFilterClick(View v) {

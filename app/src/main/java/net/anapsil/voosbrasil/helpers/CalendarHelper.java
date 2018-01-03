@@ -84,7 +84,9 @@ public class CalendarHelper {
 
     public String formatFullDate(Calendar calendar) {
         StringBuilder sb = new StringBuilder();
-        sb.append(calendar.getDisplayName(DAY_OF_WEEK, Calendar.LONG, defaultLocale))
+        String dayOfWeek = calendar.getDisplayName(DAY_OF_WEEK, Calendar.LONG, defaultLocale).split("-")[0];
+        sb.append(dayOfWeek.substring(0, 1).toUpperCase())
+                .append(dayOfWeek.substring(1))
                 .append(", ");
         if (calendar.get(DAY_OF_MONTH) < 10) {
             sb.append("0")

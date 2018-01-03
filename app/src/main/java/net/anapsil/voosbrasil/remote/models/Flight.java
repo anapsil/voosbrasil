@@ -19,7 +19,7 @@ public class Flight implements Serializable, Parcelable {
         }
     };
     private String origin;
-    private String flightcode;
+    private String flightno;
     private String depdate;
     private String deptime;
     private String duration;
@@ -37,7 +37,7 @@ public class Flight implements Serializable, Parcelable {
 
     private Flight(Builder builder) {
         setOrigin(builder.origin);
-        setFlightcode(builder.flightcode);
+        setFlightno(builder.flightno);
         setDepdate(builder.depdate);
         setDeptime(builder.deptime);
         setDuration(builder.duration);
@@ -53,7 +53,7 @@ public class Flight implements Serializable, Parcelable {
 
     protected Flight(Parcel in) {
         this.origin = in.readString();
-        this.flightcode = in.readString();
+        this.flightno = in.readString();
         this.depdate = in.readString();
         this.deptime = in.readString();
         this.duration = in.readString();
@@ -75,12 +75,12 @@ public class Flight implements Serializable, Parcelable {
         this.origin = origin;
     }
 
-    public String getFlightcode() {
-        return flightcode;
+    public String getFlightno() {
+        return flightno;
     }
 
-    public void setFlightcode(String flightcode) {
-        this.flightcode = flightcode;
+    public void setFlightno(String flightno) {
+        this.flightno = flightno;
     }
 
     public String getDeptime() {
@@ -179,7 +179,7 @@ public class Flight implements Serializable, Parcelable {
     @Override
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeString(this.origin);
-        dest.writeString(this.flightcode);
+        dest.writeString(this.flightno);
         dest.writeString(this.depdate);
         dest.writeString(this.deptime);
         dest.writeString(this.duration);
@@ -195,7 +195,7 @@ public class Flight implements Serializable, Parcelable {
 
     public static final class Builder {
         private String origin;
-        private String flightcode;
+        private String flightno;
         private String deptime;
         private String duration;
         private String destination;
@@ -216,8 +216,8 @@ public class Flight implements Serializable, Parcelable {
             return this;
         }
 
-        public Builder flightcode(String val) {
-            flightcode = val;
+        public Builder flightno(String val) {
+            flightno = val;
             return this;
         }
 

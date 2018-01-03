@@ -24,7 +24,7 @@ public class SearchActivity extends BaseActivity<ActivitySearchBinding, SearchVi
 
         setSupportActionBar(getViewDataBinding().toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setDisplayShowTitleEnabled(true);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
 
         getViewDataBinding().flights.setHasFixedSize(true);
         getViewDataBinding().flights.setHasFixedSize(true);
